@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(QuestionsApp());
+main() => runApp(QuestionsApp());
 
-class QuestionsApp extends StatelessWidget {
-  QuestionsApp({super.key});
-
+class QuestionsAppState extends State<QuestionsApp> {
   var questionSelected = 0;
 
   void answer() {
-    questionSelected++;
-    print('Question answered!');
+    setState(() {
+      questionSelected++;
+    });
+    print(questionSelected);
   }
 
   @override
@@ -45,5 +45,14 @@ class QuestionsApp extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class QuestionsApp extends StatefulWidget {
+  const QuestionsApp({super.key});
+
+  @override
+  QuestionsAppState createState() {
+    return QuestionsAppState();
   }
 }
