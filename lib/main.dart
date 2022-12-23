@@ -7,7 +7,7 @@ void main() {
 class QuestionsApp extends StatelessWidget {
   const QuestionsApp({super.key});
 
-  answer() {
+  void answer() {
     print('Question answered!');
   }
 
@@ -27,15 +27,17 @@ class QuestionsApp extends StatelessWidget {
           children: [
             Text(perguntas[0]),
             ElevatedButton(
-              onPressed: answer(),
+              onPressed: answer,
               child: const Text('Resposta 1'),
             ),
             ElevatedButton(
-              onPressed: answer(),
+              onPressed: () {
+                print('Qustion 2 answered!');
+              },
               child: const Text('Resposta 2'),
             ),
             ElevatedButton(
-              onPressed: answer(),
+              onPressed: () => print("Answer 3!"),
               child: const Text('Resposta 3'),
             ),
           ],
