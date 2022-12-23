@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const QuestionsApp());
-}
+void main() => runApp(QuestionsApp());
 
 class QuestionsApp extends StatelessWidget {
-  const QuestionsApp({super.key});
+  QuestionsApp({super.key});
+
+  var questionSelected = 0;
 
   void answer() {
+    questionSelected++;
     print('Question answered!');
   }
 
@@ -25,7 +26,7 @@ class QuestionsApp extends StatelessWidget {
         ),
         body: Column(
           children: [
-            Text(perguntas[0]),
+            Text(perguntas[questionSelected]),
             ElevatedButton(
               onPressed: answer,
               child: const Text('Resposta 1'),
