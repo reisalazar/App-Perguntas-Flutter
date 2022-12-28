@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './question.dart';
 import './answer.dart';
+import './result.dart';
 
 main() => runApp(const QuestionsApp());
 
@@ -51,12 +52,7 @@ class _QuestionsAppState extends State<QuestionsApp> {
                   ...answers.map((t) => Answer(t, _answer)).toList(),
                 ],
               )
-            : Center(
-                child: Text(
-                  "Congratulations!",
-                  style: TextStyle(fontSize: 28),
-                ),
-              ),
+            : Result(),
       ),
     );
   }
