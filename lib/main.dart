@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'question.dart';
+import './question.dart';
 import './answer.dart';
 
-main() => runApp(QuestionsApp());
+main() => runApp(const QuestionsApp());
 
 class _QuestionsAppState extends State<QuestionsApp> {
   var _questionSelected = 0;
@@ -11,14 +11,23 @@ class _QuestionsAppState extends State<QuestionsApp> {
     setState(() {
       _questionSelected++;
     });
-    print(_questionSelected);
   }
 
   @override
   Widget build(BuildContext context) {
-    final perguntas = [
-      "What's your favorite color?",
-      "Whats's your favorite animal?",
+    final List<Map<String, Object>> questions = [
+      {
+        "text": "What's your favorite color?",
+        "answer": ['Black', 'Red', 'Green', 'White'],
+      },
+      {
+        "text": "What's your favorite animal?",
+        "answer": ['Bunny', 'Snake', 'Cat', 'Dog']
+      },
+      {
+        "text": "What's you favorite teacher?",
+        "answer": ['Maria', 'John', 'Leo', 'Peter'],
+      }
     ];
 
     return MaterialApp(
@@ -28,10 +37,10 @@ class _QuestionsAppState extends State<QuestionsApp> {
         ),
         body: Column(
           children: [
-            Question(perguntas[_questionSelected]),
-            Answer('Answer 1'),
-            Answer('Answer 2'),
-            Answer('Answer 3'),
+            Question(questions[_questionSelected]['text'] as String),
+            Answer('Answer 1', _answer),
+            Answer('Answer 2', _answer),
+            Answer('Answer 3', _answer),
           ],
         ),
       ),
