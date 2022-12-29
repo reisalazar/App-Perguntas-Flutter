@@ -7,6 +7,7 @@ main() => runApp(const QuestionsApp());
 
 class _QuestionsAppState extends State<QuestionsApp> {
   var _questionSelected = 0;
+  var _totalGrade = 0;
   final _questions = const [
     {
       "text": "What's your favorite color?",
@@ -37,12 +38,14 @@ class _QuestionsAppState extends State<QuestionsApp> {
     }
   ];
 
-  void _answer() {
+  void _answer(int grade) {
     if (hasQuestionSelected) {
       setState(() {
         _questionSelected++;
+        _totalGrade += grade;
       });
     }
+    print(_totalGrade);
   }
 
   bool get hasQuestionSelected {
@@ -60,7 +63,7 @@ class _QuestionsAppState extends State<QuestionsApp> {
             ? Quiz(
                 questions: _questions,
                 questionSelected: _questionSelected,
-                answer: _answer,
+                whenAnswer: _answer,
               )
             : Result(),
       ),
