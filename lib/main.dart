@@ -65,7 +65,7 @@ class _QuestionsAppState extends State<QuestionsApp> {
                 questionSelected: _questionSelected,
                 whenAnswer: _answer,
               )
-            : Result(),
+            : Result(_totalGrade),
       ),
     );
   }
