@@ -45,7 +45,13 @@ class _QuestionsAppState extends State<QuestionsApp> {
         _totalGrade += grade;
       });
     }
-    print(_totalGrade);
+  }
+
+  void _resetQuiz() {
+    setState(() {
+      _questionSelected = 0;
+      _totalGrade = 0;
+    });
   }
 
   bool get hasQuestionSelected {
@@ -65,7 +71,7 @@ class _QuestionsAppState extends State<QuestionsApp> {
                 questionSelected: _questionSelected,
                 whenAnswer: _answer,
               )
-            : Result(_totalGrade),
+            : Result(_totalGrade, _resetQuiz),
       ),
     );
   }

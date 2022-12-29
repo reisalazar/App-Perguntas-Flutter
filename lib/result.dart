@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class Result extends StatelessWidget {
   final int pontuation;
+  final void Function() whenResetQuiz;
 
-  Result(this.pontuation, {super.key});
+  Result(this.pontuation, this.whenResetQuiz, {super.key});
 
   String get scoreFrase {
     if (pontuation < 8) {
@@ -19,11 +20,26 @@ class Result extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        scoreFrase,
-        style: const TextStyle(fontSize: 28),
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Center(
+          child: Text(
+            scoreFrase,
+            style: const TextStyle(fontSize: 28),
+          ),
+        ),
+        TextButton(
+          onPressed: whenResetQuiz,
+          child: const Text(
+            "Reset",
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.blue,
+            ),
+          ),
+        )
+      ],
     );
   }
 }
