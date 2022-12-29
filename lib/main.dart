@@ -10,15 +10,30 @@ class _QuestionsAppState extends State<QuestionsApp> {
   final _questions = const [
     {
       "text": "What's your favorite color?",
-      "answer": ['Black', 'Red', 'Green', 'White'],
+      "answer": [
+        {'text': 'Black', 'grade': 10},
+        {'text': 'Red', 'grade': 5},
+        {'text': 'Green', 'grade': 3},
+        {'text': 'White', 'grade': 1},
+      ],
     },
     {
       "text": "What's your favorite animal?",
-      "answer": ['Bunny', 'Snake', 'Cat', 'Dog']
+      "answer": [
+        {'text': 'Bunny', 'grade': 10},
+        {'text': 'Snake', 'grade': 5},
+        {'text': 'Cat', 'grade': 3},
+        {'text': 'Dog', 'grade': 1},
+      ]
     },
     {
       "text": "What's you favorite teacher?",
-      "answer": ['Maria', 'John', 'Leo', 'Peter'],
+      "answer": [
+        {'text': 'Maria', 'grade': 10},
+        {'text': 'John', 'grade': 5},
+        {'text': 'Leo', 'grade': 3},
+        {'text': 'Peter', 'grade': 1},
+      ],
     }
   ];
 
